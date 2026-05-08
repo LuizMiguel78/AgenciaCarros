@@ -1,0 +1,73 @@
+﻿@page
+@model atividadehj.Views.Carteira.IndexModel
+@{
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 700px;
+            margin-top: 10px;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <input type="number" id="codigo" placeholder="Código">
+    <input type="text" id="descricao" placeholder="Descrição">
+    <input type="number" id="ativa" placeholder="Ativa">
+    <button onclick="adicionar()">Adicionar</button>
+
+    <table id="tabela">
+        <tr>
+            <th>Código</th>
+            <th>Descrição</th>
+            <th>Ativa</th>
+        </tr>
+    </table>
+
+    <script>
+        function adicionar() {
+          const codigo = document.getElementById("codigo").value;
+          const descricao = document.getElementById("descricao").value;
+          const ativa = document.getElementById("ativa").value;
+
+          // cria a linha
+          const linha = document.createElement("tr");
+
+          // cria células
+          const colunaCodigo = document.createElement("td");
+          colunaCodigo.textContent = codigo;
+
+          const colunaDescricao = document.createElement("td");
+          colunaDescricao.textContent = descricao;
+
+          const colunaAtiva = document.createElement("td");
+          colunaAtiva.textContent = ativa;
+
+
+          // adiciona células na linha
+          linha.appendChild(colunaCodigo);
+          linha.appendChild(colunaDescricao);
+          linha.appendChild(colunaAtiva);
+
+          // adiciona linha na tabela
+          document.getElementById("tabela").appendChild(linha);
+
+          // limpa inputs
+          document.getElementById("codigo").value = "";
+          document.getElementById("descricao").value = "";
+          document.getElementById("ativa").value = "";
+          
+        }
+    </script>
+
+</body>
+</html>
